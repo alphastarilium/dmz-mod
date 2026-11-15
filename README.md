@@ -1,6 +1,6 @@
 # dmz-mod
 
-QoL/light balancing mod for EU4 based from LIVID. Credit to the original creator of livid since the majority of this is from that mod. This was originally an updated version of livid maintained by me for more recent versions of the game with the necessary fixes for said EU4 updates.
+QoL/light balancing mod for EU4 based from LIVID. Credit to the original creator of livid since the majority of this is from that mod. This was originally an updated version of livid maintained by me for more recent updates of the game with the necessary fixes for said EU4 updates.
 
 # changes/fixes made specifically in this version listed below
 full livid changes can be seen in the changelog.txt
