@@ -1,0 +1,355 @@
+country_decisions = {
+	zhongguo_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				was_never_end_game_tag_trigger = yes
+				tag = MNG
+			}
+			NOT = { has_country_flag = formed_zhongguo_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			culture_group = east_asian
+			NOT = { tag = MCH }
+			NOT = { tag = QNG }
+			#NOT = { tag = MNG }
+			NOT = { tag = YUA }
+			NOT = { tag = MGE }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 667
+				province_id = 679
+				province_id = 684
+				province_id = 688
+				province_id = 697
+				province_id = 700
+				province_id = 1816
+				province_id = 1821
+				province_id = 1836
+				province_id = 662
+				province_id = 698
+				province_id = 726
+				province_id = 738
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			NOT = { exists = PRC }
+			adm_tech = 10
+			#if = {
+			#	limit = {
+			#		#has_dlc = "Mandate of Heaven"
+			#		any_country = {
+			#			is_emperor_of_china = yes
+			#		}
+			#	}
+			#	is_emperor_of_china = yes
+			#	else = {
+			#		government_rank = 3
+			#	}
+			#}
+			#OR = {
+			#	is_emperor_of_china = yes
+			#	AND = {
+			#		NOT = { any_country = { is_emperor_of_china = yes }}
+			#		government_rank = 3
+			#	}
+			#}
+			owns_core_province = 667 #Canton
+			owns_core_province = 679 #Chengdu
+			owns_core_province = 684 #Hangzhou
+			owns_core_province = 688 #Kaifeng
+			owns_core_province = 697 #Datong
+			owns_core_province = 700 #Xi'an
+			owns_core_province = 1816 #Beijing
+			owns_core_province = 1821 #Nanjing
+			owns_core_province = 1836 #Luoyang
+			OR = {
+				owns_core_province = 662 #Yunnan
+				owns_core_province = 726 #Shenyang
+				owns_core_province = 698 #Ningxia
+				owns_core_province = 738 #Sakam
+			}
+		}
+		effect = {
+			change_tag = PRC
+			on_change_tag_effect = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_country_flag = formed_zhongguo_flag
+			if = {
+				limit = {
+					government = monarchy
+					is_emperor_of_china = no
+				}
+				add_government_reform = confucian_bureaucracy
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			swap_non_generic_missions = yes
+			china_superregion = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = PRC
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	taiwan_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_taiwan_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			culture_group = east_asian
+			NOT = { tag = PRC }
+			NOT = { tag = QNG }
+			NOT = { tag = MNG }
+			NOT = { tag = YUA }
+			NOT = { tag = MGE }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			capital_scope = {
+				area = taiwan_area
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 738
+				province_id = 2154
+				province_id = 666
+				province_id = 2155
+				province_id = 2160
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			NOT = { exists = ROC }
+			adm_tech = 10
+			owns_core_province = 2154 #Taipei
+			OR = {
+				owns_core_province = 738
+				owns_core_province = 666
+			}
+			OR = {
+				owns_core_province = 2155
+				owns_core_province = 2160
+			}
+			all_owned_province = {
+				OR = {
+					NOT = { superregion = china_superregion }
+					#is_island = yes
+					area = taiwan_area
+					province_id = 666
+					province_id = 2160
+				}
+			}
+		}
+		effect = {
+			change_tag = ROC
+			on_change_tag_effect = yes
+			set_capital = 738
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_country_flag = formed_taiwan_flag
+			if = {
+				limit = {
+					government = monarchy
+					is_emperor_of_china = no
+				}
+				add_government_reform = confucian_bureaucracy
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			#swap_non_generic_missions = yes
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	zhou_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_zhou_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				culture_group = tibetan_group
+				primary_culture = zhuang
+			}
+			NOT = { primary_culture = tibetan }
+			NOT = { tag = PRC }
+			NOT = { tag = QNG }
+			NOT = { tag = MNG }
+			NOT = { tag = YUA }
+			NOT = { tag = MGE }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 679
+				province_id = 680
+				province_id = 674
+				province_id = 662
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			NOT = { exists = CZH }
+			owns_core_province = 679 #Chengdu
+			owns_core_province = 680 #Chongqing
+			owns_core_province = 674 #Guiyang
+			owns_core_province = 662 #Yunnan
+		}
+		effect = {
+			change_tag = CZH
+			on_change_tag_effect = yes
+			change_primary_culture = tibetan_new
+			set_ruler_culture = tibetan_new
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = tibetan_new
+			}
+			set_consort_culture = tibetan_new
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture_group = tibetan_group
+					}
+					change_culture = tibetan_new
+				}
+			}
+			custom_tooltip = prc_sinicize_tibetan
+			xinan_region = {
+				add_permanent_claim = CZH
+			}
+			add_prestige = 25
+			#swap_non_generic_missions = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			set_country_flag = formed_zhou_flag
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_importance = 5
+	}
+	
+	#prc_reskin_decision = {
+	#	potential = {
+	#		NOT = { has_country_flag = czh_gov }
+	#		tag = PRC
+	#		is_revolutionary = no
+	#		is_emperor_of_china = no
+	#	}
+	#	allow = {
+	#		is_nomad = no
+	#		religion = confucianism
+	#	}
+	#	effect = {
+	#		country_event = {
+	#			id = grandmod_china.101
+	#		}
+	#		set_country_flag = czh_gov
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
+}

@@ -1,0 +1,1630 @@
+#modifier list
+#prc_miss_str prc_sinicize prc_gaituguiliu prc_korean_arty prc_open_silkroad prc_vajrayana prc_morale prc_restore_silkroad prc_tradeeff prc_open_silkroad prc_range prc_colonist
+
+zhongguo_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential =	{
+		tag = PRC
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zhongguo101 = { #south china
+		icon = mission_scholar_officials
+		required_missions = {}
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				area = hunan_area
+				area = guangxi_area
+			}
+			OR = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				has_owner_religion = no
+			}
+		}
+		trigger = {
+			hunan_area = {
+				type = all
+				owned_by = ROOT
+				has_owner_religion = yes
+			}
+			guangxi_area = {
+				type = all
+				owned_by = ROOT
+				has_owner_religion = yes
+			}
+		}
+		effect = {
+			#sichuan_area = {
+			#	add_core = ROOT
+			#}
+			#chuanbei_area = {
+			#	add_core = ROOT
+			#}
+			#chuannan_area = {
+			#	add_core = ROOT
+			#}
+			change_government_reform_progress = 50
+			add_adm_power = 50
+		}
+	}
+	zhongguo102 = { #control xinan
+		icon = mission_chinese_general_riding
+		required_missions = { zhongguo101 }
+		provinces_to_highlight = {
+			region = xinan_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				region = xinan_region
+				value = 15
+			}
+		}
+		effect = {
+			xinan_region = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = prc_miss_str
+					duration = 9125
+				}
+			}
+			add_harmony = 25
+		}
+	}
+	zhongguo103 = { #no she-an rebellion
+		icon = mission_hands_praying
+		required_missions = { zhongguo102 }
+		provinces_to_highlight = {
+			region = xinan_region
+			#country_or_non_sovereign_subject_holds = ROOT
+			OR = {
+				#has_owner_religion = no
+				local_autonomy = 25
+				unrest = 1
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				#has_owner_religion = yes
+				NOT = { local_autonomy = 25 }
+				NOT = { unrest = 1 }
+				region = xinan_region
+				value = 15
+			}
+		}
+		effect = {
+			xinan_region = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = prc_sinicize
+					duration = 9125
+				}
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = zhuang
+					}
+					change_culture = zhuang_new
+				}
+			}
+			custom_tooltip = prc_sinicize_zhuang
+			#add_country_modifier = {
+			#	name = prc_gaituguiliu
+			#	duration = 9125
+			#}
+			#add_dip_power = 100
+		}
+	}
+	zhongguo104 = { #resettle sw
+		icon = mission_kowtow
+		required_missions = { zhongguo103 }
+		provinces_to_highlight = {
+			region = xinan_region
+			#country_or_non_sovereign_subject_holds = ROOT
+			NOT = { culture_group = east_asian }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				culture_group = east_asian
+				region = xinan_region
+				value = 10
+			}
+		}
+		effect = {
+			kham_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tsang_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bhutan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			red_river_delta_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			vietnam_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			#xinan_region = {
+			#	limit = { culture_group = east_asian }
+			#	add_base_tax = 1
+			#	add_base_production = 1
+			#	add_base_manpower = 1
+			#}
+		}
+	}
+	
+	zhongguo106 = { #vietnam
+		icon = mission_chinese_general_riding
+		position = 5
+		required_missions = { zhongguo104 }
+		provinces_to_highlight = {
+			OR = {
+				area = red_river_delta_area
+				area = vietnam_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			red_river_delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			vietnam_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = vietnamese
+						region = indo_china_region
+					}
+					change_culture = vietnamese_new
+				}
+			}
+			custom_tooltip = prc_sinicize_vietnamese
+			#north_laos_area = {
+			#	add_permanent_claim = ROOT
+			#}
+			#champa_area = {
+			#	add_permanent_claim = ROOT
+			#}
+			#tay_nguyen_area = {
+			#	add_permanent_claim = ROOT
+			#}
+			#vientiane_area = {
+			#	add_permanent_claim = ROOT
+			#}
+			#champasak_area = {
+			#	add_permanent_claim = ROOT
+			#}
+			every_known_country = {
+				limit = {
+					is_subject = no
+					capital_scope = { region = indo_china_region }
+				}
+				reverse_add_casus_belli = {
+					target = ROOT
+					type = cb_force_tributary
+				}
+			}
+		}
+	}
+	zhongguo107 = { #indochinese subjects
+		icon = mission_kowtow
+		required_missions = { zhongguo106 }
+		position = 7
+		provinces_to_highlight = {}
+		trigger = {
+			calc_true_if = {
+				amount = 3
+				all_subject_country = {
+					capital_scope = { region = indo_china_region }
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					735 = { owned_by = KOR }
+				}
+				add_casus_belli = {
+					target = KOR
+					type = cb_force_tributary
+				}
+			}
+			else = {
+				735 = { add_core = ROOT }
+			}
+			add_country_modifier = {
+				name = prc_gaituguiliu
+				duration = 9125
+			}
+			#add_dip_power = 100
+		}
+	}
+	zhongguo108 = { #korea
+		icon = mission_great_wall
+		required_missions = { zhongguo107 zhongguo207 }
+		provinces_to_highlight = {
+			region = korea_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = korea_region
+				value = 10
+			}
+		}
+		effect = {
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = korean
+						region = korea_region
+					}
+					change_culture = korean_new
+				}
+			}
+			custom_tooltip = prc_sinicize_korean
+			#korea_region = {
+			#	limit = { owned_by = ROOT }
+			#	change_culture = manchu_new
+			#}
+		}
+	}
+	zhongguo109 = { #korean integration
+		icon = mission_asian_cannon
+		required_missions = { zhongguo108 }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			region = korea_region
+			OR = {
+				NOT = { development = 10 }
+				NOT = { is_core = ROOT }
+				NOT = { culture_group = east_asian }
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				development = 10
+				culture_group = east_asian
+				region = korea_region
+				value = 10
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = prc_korean_arty
+				duration = 9125
+			}
+		}
+	}
+	zhongguo110 = { #asian hegemony
+		icon = mission_kowtow
+		required_missions = { zhongguo109 }
+		provinces_to_highlight = { }
+		trigger = {
+			all_country = {
+				OR = {
+					NOT = { capital_scope = { continent = asia } }
+					NOT = { total_development = ROOT }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = prc_gaituguiliu
+				duration = -1
+			}
+			#power projection?
+		}
+	}
+}
+
+zhongguo_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential =	{
+		tag = PRC
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zhongguo201 = { #huijiang
+		icon = mission_central_asian_city
+		required_missions = {}
+		provinces_to_highlight = {
+			OR = {
+				area = shanshan_area
+				area = tarim_basin_area
+				area = kashgaria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			shanshan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tarim_basin_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kashgaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			zungaria_area = {
+				add_permanent_claim = ROOT
+			}
+			turpan_kumul_area = {
+				add_permanent_claim = ROOT
+			}
+			shanshan_area = {
+				add_province_modifier = {
+					name = prc_open_silkroad
+					duration = 9125
+				}
+			}
+			tarim_basin_area = {
+				add_province_modifier = {
+					name = prc_open_silkroad
+					duration = 9125
+				}
+			}
+			kashgaria_area = {
+				add_province_modifier = {
+					name = prc_open_silkroad
+					duration = 9125
+				}
+			}
+		}
+	}
+	zhongguo202 = { #zhunbu
+		icon = mission_steppe_warriors
+		required_missions = { zhongguo201 }
+		provinces_to_highlight = {
+			OR = {
+				area = zungaria_area
+				area = turpan_kumul_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			zungaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			turpan_kumul_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			#add_country_modifier = {
+			#	name = prc_morale
+			#	duration = 9125
+			#}
+			zungaria_area = {
+				add_province_modifier = {
+					name = prc_miss_str
+					duration = 9125
+				}
+			}
+			turpan_kumul_area = {
+				add_province_modifier = {
+					name = prc_miss_str
+					duration = 9125
+				}
+			}
+			shanshan_area = {
+				add_province_modifier = {
+					name = prc_miss_str
+					duration = 9125
+				}
+			}
+			kashgaria_area = {
+				add_province_modifier = {
+					name = prc_miss_str
+					duration = 9125
+				}
+			}
+			tarim_basin_area = {
+				add_province_modifier = {
+					name = prc_miss_str
+					duration = 9125
+				}
+			}
+			add_harmony = 25
+		}
+	}
+	zhongguo203 = { #no altishahr revolt
+		icon = mission_non-western_cavalry_raid
+		required_missions = { zhongguo202 }
+		provinces_to_highlight = {
+			OR = {
+				area = zungaria_area
+				area = turpan_kumul_area
+				area = shanshan_area
+				area = kashgaria_area
+				area = tarim_basin_area
+			}
+			OR = {
+				#has_owner_religion = no
+				local_autonomy = 25
+				unrest = 1
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			zungaria_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+				#has_owner_religion = yes
+				NOT = { local_autonomy = 25 }
+				NOT = { unrest = 1 }
+			}
+			turpan_kumul_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+				#has_owner_religion = yes
+				NOT = { local_autonomy = 25 }
+				NOT = { unrest = 1 }
+			}
+			shanshan_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+				#has_owner_religion = yes
+				NOT = { local_autonomy = 25 }
+				NOT = { unrest = 1 }
+			}
+			kashgaria_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+				#has_owner_religion = yes
+				NOT = { local_autonomy = 25 }
+				NOT = { unrest = 1 }
+			}
+			tarim_basin_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+				#has_owner_religion = yes
+				NOT = { local_autonomy = 25 }
+				NOT = { unrest = 1 }
+			}
+		}
+		effect = {
+			country_event = { id = grandmod_china.105 }
+		}
+	}
+	zhongguo204 = { #resettle Xinjiang
+		icon = mission_kowtow
+		required_missions = { zhongguo203 }
+		provinces_to_highlight = {
+			OR = {
+				area = zungaria_area
+				area = turpan_kumul_area
+				area = kashgaria_area
+				area = shanshan_area
+				area = tarim_basin_area
+			}
+			NOT = { culture_group = east_asian }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				OR = {
+					culture_group = east_asian
+					AND = {
+						has_owner_accepted_culture = yes
+						has_owner_religion = yes
+					}
+				}
+				OR = {
+					area = zungaria_area
+					area = turpan_kumul_area
+					area = kashgaria_area
+					area = shanshan_area
+					area = tarim_basin_area
+				}
+				value = 10
+			}
+		}
+		effect = {
+			mongolia_region = {
+				add_permanent_claim = ROOT
+			}
+			utsang_area = {
+				add_permanent_claim = ROOT
+			}
+			amdo_area = {
+				add_permanent_claim = ROOT
+			}
+			ngari_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	zhongguo105 = { #tibet
+		icon = mission_buddhist_monk_praying
+		position = 5
+		required_missions = { zhongguo104 zhongguo204 }
+		provinces_to_highlight = {
+			region = tibet_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = tibet_region
+				value = 10
+			}
+			owns_core_province = 677
+		}
+		effect = {
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture_group = tibetan_group
+						OR = {
+							region = xinan_region
+							region = tibet_region
+						}
+					}
+					change_culture = tibetan_new
+				}
+			}
+			custom_tooltip = prc_sinicize_tibetan
+		}
+	}
+	zhongguo206 = { #accept vajrayana
+		icon = mission_buddhist_monk_praying
+		required_missions = { zhongguo105 zhongguo205 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4678
+				province_id = 677
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				677 = {
+					has_great_project = {
+						type = jokhang_temple
+						tier = 2
+					}
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				4678 = {
+					has_great_project = {
+						type = erdene_zuu
+						tier = 2
+					}
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			else = {
+				677 = {
+					has_building = cathedral
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				4678 = {
+					has_building = cathedral
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Mandate of Heaven"
+					religion = confucianism
+					NOT = { has_harmonized_with = vajrayana }
+				}
+				add_harmonized_religion = vajrayana
+			}
+			677 = {
+				add_province_modifier = {
+					name = prc_vajrayana
+					duration = -1
+				}
+			}
+			4678 = {
+				add_province_modifier = {
+					name = prc_vajrayana
+					duration = -1
+				}
+			}
+			manchuria_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	zhongguo207 = { #dominate jurchens
+		icon = mission_manchu_warrior
+		required_missions = { zhongguo206 }
+		provinces_to_highlight = {
+			region = manchuria_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = manchuria_region
+				value = 20
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = prc_morale
+				duration = 9125
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = manchu
+						region = manchuria_region
+					}
+					change_culture = manchu_new
+				}
+			}
+			custom_tooltip = prc_sinicize_jurchen
+			#permaclaims on korea?
+		}
+	}
+	zhongguo208 = { #assimilate nomads
+		icon = mission_steppe_warriors
+		required_missions = { zhongguo207 }
+		provinces_to_highlight = {}
+		trigger = {
+			num_of_owned_provinces_with = {
+				culture = manchu_new
+				value = 15
+			}
+			num_of_owned_provinces_with = {
+				culture = altaic_new
+				value = 15
+			}
+		}
+		effect = {
+			#event for access to banners - remove tengri harmonization since it's covered under pagan?
+			country_event = {
+				id = grandmod_china.102
+			}
+			#if = {
+			#	limit = {
+			#		has_dlc = "Mandate of Heaven"
+			#		religion = confucianism
+			#		NOT = { has_harmonized_with = tengri_pagan_reformed }
+			#	}
+			#	add_harmonized_religion = tengri_pagan_reformed
+			#}
+		}
+	}
+	zhongguo209 = { #recruit banners
+		icon = mission_manchu_warrior
+		required_missions = { zhongguo208 }
+		provinces_to_highlight = {}
+		trigger = {
+			num_of_banners = 50
+		}
+		effect = {
+			add_yearly_manpower = 2
+			add_mil_power = 50
+		}
+	}
+	zhongguo210 = { #mil dominance
+		icon = mission_assemble_an_army
+		required_missions = { zhongguo209 }
+		provinces_to_highlight = {}
+		trigger = {
+			land_forcelimit = 500
+			manpower = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = prc_morale
+				duration = -1
+			}
+		}
+	}
+}
+
+zhongguo_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = PRC
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zhongguo302 = { #tang culture
+		icon = mission_mnd_dai_examination_system
+		required_missions = { }
+		provinces_to_highlight = {}
+		trigger = {
+			owns_core_province = 700
+			700 = { development = 30 }
+			prestige = 75
+			OR = {
+				has_harmonized_with = mahayana
+				NOT = { any_owned_province = { religion = mahayana } }
+			}
+			OR = {
+				has_harmonized_with = vajrayana
+				NOT = { any_owned_province = { religion = vajrayana } }
+			}
+			OR = {
+				has_harmonized_with = buddhism
+				NOT = { any_owned_province = { religion = buddhism } }
+			}
+		}
+		effect = {
+			add_splendor = 400
+			add_harmony = 25
+		}
+	}
+	zhongguo301 = { #the great novels
+		icon = mission_early_modern_university
+		required_missions = { zhongguo302 }
+		provinces_to_highlight = {}
+		trigger = {
+			has_institution = printing_press
+		}
+		effect = {
+			set_country_flag = prc_literature
+			change_innovativeness = 2
+			add_prestige = 25
+			custom_tooltip = prc_lit_tt
+		}
+	}
+	zhongguo303 = { #build pagodas
+		icon = mission_buddhist_monk_praying
+		required_missions = { zhongguo301 }
+		provinces_to_highlight = {}
+		trigger = {
+			temple = 25
+		}
+		effect = {	
+			add_country_modifier = {
+				name = monument_boost
+				duration = 3650
+			}
+		}
+	}
+	zhongguo304 = { #refurbish the great temples
+		icon = public_works
+		required_missions = { zhongguo303 }
+		provinces_to_highlight = {}
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				1821 = {
+					has_great_project = {
+						type = porcelain_tower_nanjing
+						tier = 2
+					}
+					culture_group = east_asian
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				2140 = {
+					has_great_project = {
+						type = temple_of_confucius
+						tier = 2
+					}
+					religion = confucianism
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			else = {
+				1821 = { 
+					has_building = cathedral
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				2140 = { 
+					has_building = cathedral
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			add_harmony = 25
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 25
+			}
+		}
+	}
+	zhongguo205 = { #end mongol threat
+		icon = mission_steppe_warriors
+		required_missions = { zhongguo204 zhongguo304 }
+		provinces_to_highlight = {
+			OR = {
+				region = mongolia_region
+				province_id = 698
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = mongolia_region
+				value = 25
+			}
+			owns_core_province = 2190
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				698 = {
+					culture_group = east_asian
+					has_great_project = {
+						tier = 2
+						type = the_great_wall_of_china
+					}
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			else = {
+				698 = {
+					has_building = fort_17th
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							culture = mongol
+							culture = oirats
+							culture = khalkha
+							culture = chahar
+						}
+						region = mongolia_region
+					}
+					change_culture = altaic_new
+				}
+			}
+			custom_tooltip = prc_sinicize_altaic
+			#2190 = { add_core = ROOT }
+			#add_country_modifier = {
+			#	name = monument_boost
+			#	duration = 3650
+			#}
+			ferghana_area = {
+				add_permanent_claim = ROOT
+			}
+			termez_area = {
+				add_permanent_claim = ROOT
+			}
+			transoxiana_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	zhongguo306 = { #western protectorate
+		icon = mission_kowtow
+		position = 6
+		required_missions = { zhongguo205 }
+		provinces_to_highlight = {
+			OR = {
+				area = ferghana_area
+				area = termez_area
+				area = transoxiana_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			ferghana_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			termez_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			transoxiana_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			ferghana_area = {
+				add_devastation = -50
+				add_province_modifier = {
+					name = prc_restore_silkroad
+					duration = 9125
+				}
+			}
+			termez_area = {
+				add_devastation = -50
+				add_province_modifier = {
+					name = prc_restore_silkroad
+					duration = 9125
+				}
+			}
+			transoxiana_area = {
+				add_devastation = -50
+				add_province_modifier = {
+					name = prc_restore_silkroad
+					duration = 9125
+				}
+			}
+			merv_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	zhongguo307 = { #restore central asian towns
+		icon = mission_central_asian_city
+		required_missions = { zhongguo306 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 442
+				province_id = 445
+				province_id = 454
+				province_id = 458
+				province_id = 739
+			}
+			OR = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				NOT = { development = 10 }
+			}
+		}
+		trigger = {
+			442 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				development = 10
+			}
+			445 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				development = 10
+			}
+			454 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				development = 10
+			}
+			458 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				development = 10
+			}
+			739 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				development = 10
+			}
+		}
+		effect = {
+			add_dip_power = 50
+			add_country_modifier = {
+				name = prc_tradeeff
+				duration = 9125
+			}
+		}
+	}
+	zhongguo308 = { #persian trade
+		icon = mission_persian_soldiers
+		required_missions = { zhongguo307 zhongguo407 }
+		provinces_to_highlight = {
+			region = persia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			any_owned_province = {
+				region = persia_region
+			}
+		}
+		effect = {
+			central_asia_region = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = prc_open_silkroad
+					duration = -1
+				}
+				if = {
+					limit = { has_building = marketplace }
+					remove_building = marketplace
+					add_building = trade_depot
+				}
+			}
+		}
+	}
+	zhongguo309 = { #reopen silk road
+		icon = mission_central_asian_city
+		required_missions = { zhongguo308 }
+		provinces_to_highlight = {}
+		trigger = {
+			454 = { is_strongest_trade_power = ROOT }
+			4341 = { is_strongest_trade_power = ROOT }
+			silk = 1
+		}
+		effect = {
+			every_owned_province = {
+				limit = { trade_goods = silk }
+				add_base_production = 1
+				add_province_modifier = {
+					name = prc_restore_silkroad
+					duration = 9125
+				}
+			}
+		}
+	}
+	zhongguo310 = { #economic dominance
+		icon = mission_high_income
+		required_missions = { zhongguo309 }
+		provinces_to_highlight = {}
+		trigger = {
+			monthly_income = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = prc_tradeeff
+				duration = -1
+			}
+		}
+	}
+	zhongguo311 = { #hegemon
+		icon = mission_empire
+		required_missions = { zhongguo210 zhongguo310 zhongguo410 }
+		provinces_to_highlight = {}
+		trigger = {
+			is_hegemon = yes
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+	zhongguo312 = { #china number one
+		icon = mission_conquer_50_development
+		required_missions = { zhongguo311 }
+		provinces_to_highlight = {}
+		trigger = {
+			is_great_power = yes
+			NOT = { great_power_rank = 2 }
+		}
+		effect = {
+			#add_prestige = 25
+			#add_splendor = 400
+			#add_legitimacy = 20
+			#add_republican_tradition = 10
+			#add_devotion = 20
+			#add_horde_unity = 20
+			#add_meritocracy = 20
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 50
+			}
+		}
+	}
+}
+
+zhongguo_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = PRC
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zhongguo401 = { #tea and porcelain
+		icon = mission_asian_trader
+		position = 1
+		required_missions = {}
+		provinces_to_highlight = {}
+		trigger = {
+			tea = 5
+			chinaware = 5
+		}
+		effect = {
+			add_dip_power = 50
+		}
+	}
+	zhongguo402 = { #salt monopoly
+		icon = mission_son_own_develop_clothes_and_salt
+		#position = 2
+		required_missions = { zhongguo302 zhongguo401 }
+		provinces_to_highlight = {
+			province_id = 685
+		}
+		trigger = {
+			685 = {
+				is_prosperous = yes
+				owned_by = ROOT
+				base_production = 10
+			}
+			#custom_tooltip
+		}
+		effect = {
+			685 = {
+				add_province_modifier = {
+					name = salt_mining
+					duration = -1
+				}
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 4
+			}
+		}
+	}
+	zhongguo403 = { #silk and spices - move to a different column?
+		icon = mission_asian_trader
+		required_missions = { zhongguo402 }
+		provinces_to_highlight = {}
+		trigger = {
+			silk = 5
+			spices = 5
+		}
+		effect = {
+			add_mercantilism = 5
+			#every_owned_province = {
+			#	limit = { trade_goods = spices }
+			#	add_base_production = 1
+			#}
+			#custom_tooltip
+		}
+	}
+	zhongguo404 = { #shinto influence
+		icon = mission_invade_island
+		required_missions = { zhongguo503 }
+		provinces_to_highlight = {
+			province_id = 1822
+		}
+		trigger = {
+			any_owned_province = { religion = shinto }
+			owns_core_province = 1822
+		}
+		effect = {
+			country_event = {
+				id = grandmod_china.104
+			}
+		}
+	}
+	zhongguo405 = { #manichaeism
+		icon = mission_buddhist_monk_praying
+		required_missions = { zhongguo304 zhongguo404 }
+		provinces_to_highlight = {
+			province_id = 1829
+		}
+		trigger = {
+			owns_core_province = 1829
+			1829 = { development = 20 }
+			religious_unity = 0.9
+		}
+		effect = {
+			country_event = {
+				id = grandmod_china.103
+			}
+		}
+	}
+}
+
+zhongguo_missions_4a = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = PRC
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zhongguo406 = { #no ceylon pirates
+		icon = mission_mnd_maj_candi_shrines
+		position = 6
+		required_missions = { zhongguo505 }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				owns_core_province = 572
+				572 = {
+					owner = {
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			create_conquistador = { tradition = 50 }
+			#event for owner of kotte
+		}
+	}
+	zhongguo407 = { #the great ports
+		icon = mission_control_surat
+		required_missions = { zhongguo406 }
+		provinces_to_highlight = {}
+		trigger = {
+			has_discovered = 387
+			has_discovered = 400
+			has_discovered = 2331
+			has_discovered = 1196
+			has_discovered = 1205
+			has_discovered = 1186
+			has_discovered = 517
+		}
+		effect = {
+			2999 = { add_permanent_claim = ROOT }
+			add_years_of_income = 0.5
+			#create_explorer = { tradition = 50 }
+		}
+	}
+	zhongguo408 = { #circumnavigate
+		icon = mission_establish_high_seas_navy
+		required_missions = { zhongguo407 zhongguo507 }
+		provinces_to_highlight = {}
+		trigger = {
+			has_discovered = 1361
+			has_discovered = 1460
+			has_discovered = 1469
+			has_discovered = 1530
+			has_discovered = 1539
+			has_discovered = 1545
+			has_discovered = 1697
+			has_discovered = 1435
+		}
+		effect = {
+			add_dip_power = 50
+			add_country_modifier = {
+				name = prc_range
+				duration = 9125
+			}
+		}
+	}
+	zhongguo409 = { #NW treasure fleet
+		icon = mission_war_chest
+		required_missions = { zhongguo408 }
+		provinces_to_highlight = {}
+		trigger = {
+			any_subject_country = {
+				is_colonial_nation = yes
+				any_owned_province = {
+					trade_goods = gold
+					OR = {
+						colonial_region = colonial_mexico
+						colonial_region = colonial_alaska
+						colonial_region = colonial_california
+					}
+				}
+			}
+		}
+		effect = {
+			add_yearly_sailors = 5
+			add_navy_tradition = 20
+		}
+	}
+	zhongguo410 = { #naval dominance
+		icon = mission_establish_high_seas_navy
+		required_missions = { zhongguo409 }
+		provinces_to_highlight = {}
+		trigger = {
+			num_of_heavy_ship = 100
+			num_of_galley = 100
+			num_of_admirals = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = prc_colonist
+				duration = -1
+			}
+		}
+	}
+}
+
+zhongguo_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = PRC
+		#NOT = { tag = MNG }
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zhongguo501 = { #establish navy
+		icon = mission_establish_high_seas_navy
+		required_missions = {}
+		provinces_to_highlight = {}
+		trigger = {
+			OR = {
+				full_idea_group = naval_ideas
+				navy_size = 50
+			}
+		}
+		effect = {
+			taiwan_area = {
+				add_permanent_claim = ROOT
+			}
+			666 = { add_permanent_claim = ROOT }
+			2160 = { add_permanent_claim = ROOT }
+			create_explorer = { tradition = 25 }
+			#would have permaclaims already if PRC
+			#add_country_modifier = {
+			#	name = prc_colonist
+			#	duration = 9125
+			#}
+		}
+	}
+	zhongguo502 = { #taiwan and henan
+		icon = mission_invade_island
+		required_missions = { zhongguo501 }
+		#position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = taiwan_area
+				province_id = 666
+				province_id = 2160
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			taiwan_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			owns_core_province = 666
+			owns_core_province = 2160
+		}
+		effect = {
+			1015 = { add_permanent_claim = ROOT }
+			4651 = { add_permanent_claim = ROOT }
+		}
+	}
+	zhongguo503 = { #japanese island
+		icon = mission_japanese_samurai
+		required_missions = { zhongguo502 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1015
+				province_id = 4651
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				owns_core_province = 1015
+				owns_core_province = 4651
+			}
+		}
+		effect = {
+			636 = { add_permanent_claim = ROOT }
+			640 = { add_permanent_claim = ROOT }
+			656 = { add_permanent_claim = ROOT }
+		}
+	}
+	zhongguo505 = { #south china sea
+		icon = mission_junk_boat
+		required_missions = { zhongguo503 }
+		position = 5
+		provinces_to_highlight = {}
+		trigger = {
+			OR = {
+				AND = {
+					1361 = { is_strongest_trade_power = ROOT }
+					1397 = { is_strongest_trade_power = ROOT }
+				}
+				full_idea_group = maritime_ideas
+			}
+		}
+		effect = {
+			572 = { add_claim = ROOT }
+			#micronesia_area = {
+			#	discover_country = ROOT
+			#	add_permanent_claim = ROOT
+			#}
+			#west_micronesia_area = {
+			#	discover_country = ROOT
+			#	add_permanent_claim = ROOT
+			#}
+			#northern_polynesia_area = {
+			#	discover_country = ROOT
+			#	add_permanent_claim = ROOT
+			#}
+			coral_sea_area = {
+				discover_country = ROOT
+			}
+			banda_arafura_seas_area = {
+				discover_country = ROOT
+			}
+			if = {
+				limit = {
+					1238 = { is_empty = no }
+				}
+				1238 = {
+					discover_country = ROOT
+					add_permanent_claim = ROOT
+				}
+			}
+			else = {
+				1238 = {
+					add_core = PRC
+					cede_province = PRC
+				}
+			}
+		}
+	}
+	zhongguo506 = { #Solomon Islands
+		icon = mission_invade_island
+		required_missions = { zhongguo505 }
+		provinces_to_highlight = {}
+		trigger = {
+			OR = {
+				1238 = { has_supply_depot = ROOT }
+				1238 = { has_building = fort_15th }
+				1238 = { has_building = coastal_defence }
+			}
+			1238 = {
+				owned_by = ROOT
+				development = 10
+			}
+		}
+		effect = {
+			northern_polynesia_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			fiji_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			polynesia_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	zhongguo507 = { #oceania
+		icon = mission_colonial
+		required_missions = { zhongguo506 }
+		provinces_to_highlight = {
+			region = oceanea_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = oceanea_region
+				value = 10
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = prc_colonist
+				duration = 9125
+			}
+			create_explorer = { tradition = 50 }
+		}
+	}
+}
+
+zhongguo_missions_5a = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = PRC
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	zhongguo508 = { #eliminate challengers
+		icon = mission_cannons_firing
+		position = 8
+		required_missions = {}
+		provinces_to_highlight = {}
+		trigger = {
+			stability = 2
+			NOT = { num_of_rebel_armies = 1 }
+			num_of_owned_provinces_with = {
+				region = north_china_region
+				value = 30
+			}
+			num_of_owned_provinces_with = {
+				region = south_china_region
+				value = 30
+			}
+		}
+		effect = {
+			south_china_region = {
+				limit = { owned_by = ROOT }
+				add_local_autonomy = -10
+			}
+			north_china_region = {
+				limit = { owned_by = ROOT }
+				add_local_autonomy = -10
+			}
+		}
+	}
+	zhongguo509 = { #mandate/legitimacy
+		icon = mission_kowtow
+		required_missions = { zhongguo508 }
+		provinces_to_highlight = { }
+		trigger = {
+			OR = {
+				is_emperor_of_china = yes
+				AND = {
+					NOT = { any_country = { is_emperor_of_china = yes }}
+					government_rank = 3
+				}
+			}
+		}
+		effect = {
+			change_government_reform_progress = 50
+			add_legitimacy = 20
+			add_meritocracy = 20
+			add_devotion = 20
+			add_horde_unity = 20
+			add_republican_tradition = 10
+		}
+	}
+	zhongguo510 = { #gov of zhongguo
+		icon = mission_scholar_officials
+		required_missions = { zhongguo509 }
+		provinces_to_highlight = {}
+		trigger = {
+			legitimacy_equivalent = 90
+			OR = {
+				has_reform = parliamentary_reform
+				has_reform = states_general_reform
+				has_reform = theocratic_democracy_reform
+				has_reform = regionally_elected_commanders
+				has_reform = monastic_elections_reform
+				is_revolutionary = yes
+			}
+		}
+		effect = {
+			country_event = {
+				id = grandmod_china.101
+			}
+		}
+	}
+}

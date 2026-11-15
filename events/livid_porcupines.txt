@@ -1,0 +1,320 @@
+#tips:
+#prickle
+#ashanti empire
+#quills up to 50 cm
+#30000 quills
+#grows back lost quills
+#mentioned in Hamlet as "porpentine"
+#air filled quills help with swimming
+#long lived rodents, record is over 30 years
+#considered pests in kenya
+#quills harden an hour after birth
+#quills have overlapping barbs
+#convergent evolution
+#bones
+#native american decoration
+
+namespace = porcupine
+
+country_event = { #start stage 1
+	id = porcupine.1
+	title = porcupine.1.t
+	desc = porcupine.1.d
+	picture = PORCUPINE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { has_global_flag = porcupines_1 }
+		colony = 1
+		salt = 1
+		capital_scope = {
+			OR = {
+				continent = europe
+				continent = asia
+				continent = africa
+			}
+		}
+		is_year = 1550
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	immediate = {
+		set_global_flag = porcupines_1
+		hidden_effect = {
+			country_event = { #fire for owner of London
+				id = porcupine.2
+				days = 1825
+			}
+			country_event = { #fire for owner of Tetouan
+				id = porcupine.3
+				days = 3650
+			}
+			country_event = { #fire for owner of Salzburg
+				id = porcupine.4
+				days = 5475
+			}
+			country_event = { #fire for owner of Madrid
+				id = porcupine.5
+				days = 7300
+			}
+			country_event = { #fire for ROOT
+				id = porcupine.6
+				days = 9125
+			}
+		}
+	}
+	
+	option = {
+		name = porcupine.1.a
+		set_global_flag = porcupines_1
+		custom_tooltip = tt_porcupines_1
+		change_price = {
+			trade_goods = salt
+			key = GA_PORCUPINE
+			value = 0.1
+			duration = -1
+		}
+		
+	}
+}
+
+country_event = { #start stage 2
+	id = porcupine.2
+	title = porcupine.2.t
+	desc = porcupine.2.d
+	picture = PORCUPINE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = porcupine.2.a
+		set_global_flag = porcupines_2
+		change_price = {
+			trade_goods = naval_supplies
+			key = GA_PORCUPINE
+			value = -0.25
+			duration = 3650
+		}
+		change_price = {
+			trade_goods = tropical_wood
+			key = GA_PORCUPINE
+			value = -0.25
+			duration = 3650
+		}
+	}
+}
+
+country_event = { #start stage 3
+	id = porcupine.3
+	title = porcupine.3.t
+	desc = porcupine.3.d
+	picture = PORCUPINE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = porcupine.3.a
+		set_global_flag = porcupines_3
+		change_price = {
+			trade_goods = tobacco
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 3650
+		}
+		change_price = {
+			trade_goods = sugar
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 3650
+		}
+		change_price = {
+			trade_goods = cotton
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 3650
+		}
+		change_price = {
+			trade_goods = coffee
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 3650
+		}
+		change_price = {
+			trade_goods = cocoa
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 3650
+		}
+		change_price = {
+			trade_goods = tea
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 3650
+		}
+	}
+}
+
+country_event = { #start stage 4
+	id = porcupine.4
+	title = porcupine.4.t
+	desc = porcupine.4.d
+	picture = PORCUPINE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = porcupine.4.a
+		set_global_flag = porcupines_4
+		change_price = {
+			trade_goods = salt
+			key = GA_PORCUPINE
+			value = 0.3
+			duration = 3650
+		}
+	}
+}
+
+country_event = { #start stage 5
+	id = porcupine.5
+	title = porcupine.5.t
+	desc = porcupine.5.d
+	picture = PORCUPINE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = porcupine.5.a
+		set_global_flag = porcupines_5
+		change_price = {
+			trade_goods = iron
+			key = GA_PORCUPINE
+			value = 0.5
+			duration = 1825
+		}
+		change_price = {
+			trade_goods = livestock
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 1825
+		}
+		change_price = {
+			trade_goods = ivory
+			key = GA_PORCUPINE
+			value = -0.1
+			duration = 1825
+		}
+	}
+}
+
+country_event = { #end porcupine age
+	id = porcupine.6
+	title = porcupine.6.t
+	desc = porcupine.6.d
+	picture = PORCUPINE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	option = {
+		name = porcupine.6.a
+		set_global_flag = porcupines_6
+	}
+}
+
+province_event = { #too salty
+	id = porcupine.11
+	title = porcupine.11.t
+	desc = porcupine.11.desc
+	picture = PORCUPINE_eventPicture
+	goto = root
+	
+	trigger = {
+		trade_goods = salt
+		owner = {
+			has_global_flag = porcupines_1
+			NOT = { has_global_flag = porcupines_6 }
+		}
+		NOT = { has_province_modifier = saltmine }
+		#NOT = { has_province_modifier = salt_mining }
+	}
+	mean_time_to_happen = {
+		months = 300 #25 years
+		modifier = {
+			factor = 0.8 #20 years
+			owner = { has_global_flag = porcupines_2 }
+		}
+		modifier = {
+			factor = 0.8 #16 years
+			owner = { has_global_flag = porcupines_3 }
+		}
+		modifier = {
+			factor = 0.5 #8 years
+			owner = { has_global_flag = porcupines_4 }
+		}
+		modifier = {
+			factor = 0.1 #<1year
+			owner = { has_global_flag = porcupines_5 }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_province_modifier = {
+				name = saltmine
+				duration = 18250
+				hidden = yes
+			}
+		}
+	}
+	
+	option = {
+		name = porcupine.11.a
+		add_province_modifier = {
+			name = salt_mining
+			duration = 3650
+		}
+	}
+	option = {
+		name = porcupine.11.c
+		trigger = {
+			owner = {
+				has_global_flag = porcupines_3
+				ai = no
+				is_at_war = no
+			}
+			NOT = { has_building = fort_15th }
+			NOT = { has_building = fort_16th }
+			NOT = { has_building = fort_17th }
+			NOT = { has_building = fort_18th }
+			has_siege = no
+		}
+		add_building = fort_15th
+	}
+	option = {
+		name = porcupine.11.b
+		trigger = { owner = { has_global_flag = porcupines_2 } }
+		add_base_tax = 2
+	}
+	option = {
+		name = porcupine.11.d
+		trigger = { owner = { has_global_flag = porcupines_4 } }
+		add_base_production = 2
+	}
+	option = {
+		name = porcupine.11.e
+		trigger = { owner = { has_global_flag = porcupines_5 } }
+		add_base_manpower = 2
+	}
+}

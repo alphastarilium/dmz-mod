@@ -1,0 +1,5 @@
+﻿l_english:
+ ab_recolor_nation:0 "Recolor Nation"
+ ab_recolor_nation_desc:0 "[From.GetName] will adopt the color of [Root.GetName] for 5 years."
+ CB_ALLOWED_ab_recolor_nation:0 "Recolor Nation"
+ PEACE_ab_recolor_nation:0 "Recolor Nation"

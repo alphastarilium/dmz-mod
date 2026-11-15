@@ -1,0 +1,74 @@
+namespace = dmztrade
+
+country_event = {
+    id = dmztrade.1
+    title = "dmztrade.1.t"
+    desc = "dmztrade.1.d"
+    picture = "18_Trade_Company_eventPicture"
+	
+    is_triggered_only = yes
+	
+	trigger = {
+			AND = { current_age = age_of_reformation } 
+			NOT = { has_country_modifier = dmztrade_trade_eff_penalty1 }
+		}
+
+    option = {
+        name = "dmztrade.1.a"
+		custom_tooltip = dmztrade_tt1
+		add_country_modifier = {
+            name = dmztrade_trade_eff_penalty1
+            duration = -1
+        }
+    }
+}
+
+country_event = {
+    id = dmztrade.2
+    title = "dmztrade.2.t"
+    desc = "dmztrade.2.d"
+    picture = "18_Trade_Company_eventPicture"
+    
+	is_triggered_only = yes
+	
+	trigger = {
+			AND = { current_age = age_of_absolutism } 
+			AND = { has_country_modifier = dmztrade_trade_eff_penalty1 }
+			NOT = { has_country_modifier = dmztrade_trade_eff_penalty2 }
+		}
+		
+    option = {
+        name = "dmztrade.2.a"
+		custom_tooltip = dmztrade_tt2
+		remove_country_modifier = dmztrade_trade_eff_penalty1
+        add_country_modifier = {
+            name = dmztrade_trade_eff_penalty2
+            duration = -1
+        }
+    }
+}
+
+country_event = {
+    id = dmztrade.3
+    title = "dmztrade.3.t"
+    desc = "dmztrade.3.d"
+    picture = "18_Trade_Company_eventPicture"
+
+	is_triggered_only = yes
+	
+	trigger = {
+			AND = { current_age = age_of_revolutions } 
+			AND = { has_country_modifier = dmztrade_trade_eff_penalty2 }
+			NOT = { has_country_modifier = dmztrade_trade_eff_penalty3 }
+		}
+
+    option = {
+        name = "dmztrade.3.a"
+		custom_tooltip = dmztrade_tt3
+		remove_country_modifier = dmztrade_trade_eff_penalty2
+        add_country_modifier = {
+            name = dmztrade_trade_eff_penalty3
+            duration = -1
+		}
+	}
+}

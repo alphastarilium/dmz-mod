@@ -1,0 +1,159 @@
+Changelog
+LIVID Mod
+Patch 1.35 Version 1
+
+QoL
+-removing rivals is free and has a 15 year cooldown
+-abandon PU is free
+-Papal Subjugation, Occupation of Rome, Counter Revolution, and Rapid Collapse of society triggered modifiers removed
+-Return Rome Papal event will give no penalties for refusing, and AI will always refuse
+-minimum relations required to ally or support independence changed to -200
+-no dishonorable peace out penalty
+-no prestige or dip rep penalty on refusing CTA
+-abdicate and disinherit prestige loss lowered to 25
+-minimum legitimacy to abdicate lowered to 50
+-prestige loss from abandoning a core removed
+-prestige gain from sharing maps reduced to +5 and prestige hit for buying maps reduced to -5
+-removed stab hit for removing a royal marriage
+-time for full occupation reduced from 5 years to 2
+-increased max warscore from wargoal from 25 to 33
+-increased ticking warscore from +0.4 to +0.66/month
+-removed Encourage Development edict and added -10% dev cost to all provinces in states to compensate
+-can seize crownland during war
+-added option to replace spawning of Kalmyk with rebel stacks
+-added option to replace spawning of pirate nations with a rebel stack
+-Institution Spread age bonus gives an additional 25% religious unity
+-age goal for 90 absolutism reduced to 50 absolutism
+-age bonus for -50% change rival cost changed to -15% province warscore cost
+-added peace deal option to recolor enemy nations for 5 years
+
+Gamebalance
+-over gov capacity no longer reduced admin efficiency; instead, it increases core cost, diplo annex cost, dev cost, and decreases manpower recovery and merc manpower
+-increased base gov capacity from 200 to 300
+-changed backrow morale damage taken from 40% to 0% of frontline damage
+-changed stackwipe ratio from 2:1 to 3:1
+-increased election timers by 1 year for all republics except noble elite, signioria, veche, great veche, and great russian
+-nerfed great veche and great russian republics from 20% to 10% manpower and from 350 to 250 gov capacity
+-nerfed republican tradition from +100% to +50% reform progress
+-decreased MTTH for protestantism to spawn after 1510
+-dev cost penalty from arid reduced to 5%; from arctic to 25%
+-doubled institution progress per dev click
+-Sale of Titles gives 1.0x yearly income in all ages, instead of the 2.5x in the age of discovery (2.0 for special govs)
+-burgher and jain loans are now 3% IPA
+-increased starting crownland to 40%
+-increased base possible advisors to 7
+-buffed Centralization edict to -0.1 autonomy/month
+-decreased edict cooldown to 1 month
+-removed extra stability cost while in regency
+-development required to upgrade CoT's lowered to 5 and 15
+-gave equal bonuses (level 4) to all levels of Defender of the Faith
+-lowered cost of and tech requirement for canals
+-lowered warscore from monuments from +33% to +10%
+-lowered stability penalty of Peasants' War to +25% and removed additional progress from bankruptcy
+-decreased culture conversion time to 6 months per dev
+-added a porcupine event chain
+
+Regional Balance - China
+-split China, removed most of Ming's tributaries, removed existing Chinese missions
+-added 8 national idea sets, 6 flavor events, and 50 missions to split China
+-added 3 formables in China
+-made Kongsi Federation available to Zhongguo and Taiwan
+-removed Oirat's overlordship over Mongolia and the Oirat event chain that occupies North China
+-removed free cores from Manchu formation and Qing missions
+-removed free cores from Unify China CB and replaced them with claims
+-made negative mandate 5 times less punishing (except meritocracy and reduced LD)
+-removed mandate penalty from not holding Canton or Nanjing, as well as the modifier that made AI want to own them anyway
+-EoC age goal requires country to be empire rank instead
+
+Regional Balance - Rest of Asia/Oceania
+-reduced Marathas discipline privilege to 5% and removed the associated tax penalty
+-nerfed ideas for Siam
+-limited Majapahit CB to the Malay culture group
+-Lanfang formation requires tech 10 or owning Waichow
+-added a "formable" for Oceania - decision is available for Hawaii, Viti, and Aotearoa, and gives new name + better NI
+-removed Dark Age of Cambodia and Fall of Majapahit disasters
+
+Regional Balance - Africa
+-changed Mutapa/Zimbabwe/Rozwi mission event to attract Zulus to change the primary culture to Nguni instead
+-made Zulu formable with Nguni culture and tech 20
+-made Ashanti formable with tech 10
+-added ideas for Sus
+-improved ideas for Ashanti, Sokoto, and Kitara
+-added Feudalism and tech 3 to all of Africa
+-removed Decline of Mali disaster
+
+Regional Balance - Ottomans
+-nerfed Reign of Valide Sultan from -10% to -5% APC
+-disabled second golden age for Muslim; mission now always gives mana and splendor
+-made eyalets take a diplo slot
+
+Regional Balance - Europe
+-nerfed Grain Vodka from +125% to +50% local production
+-nerfed Cossacks from -20% to -10% cav cost and from 20% to 10% CCA 
+-removed Dutch Revolt, Burgundian Succession, and Great Peasants' War incidents. Burgundian AI will always choose to stay free.
+-removed additional AE inside the HRE
+-removed German Regional Tag formation restrictions
+-removed some tag-based formation restrictions for Westphalia and Hanover
+-improved ideas for Italy and Two Sicilies
+-Venetian age bonus replaced with 10% trade efficiency and extended to all Italian formables
+-Spanish age bonus made available to Andalusia
+-Prussian age bonus reduced to -10% FDR
+-Austrian age bonus reduced to -10% MDR
+-Loosened requirements and lowered MTTH for Norse event chain
+
+Regional Balance - New World
+-added -50 base CN liberty desire
+-decreased FL, manpower, naval FL, and sailor contribution, as well as dev cost, from CN's
+-transferred a few provinces between existing colonial regions
+-added a Colonial Florida region in existing Louisiana and Eastern America regions
+-added a Colonial Central America region in existing Mexico and Colombia regions
+-changed the requirements to form Florida
+-added two idea sets for Florida
+-added ideas for Maya
+-removed 21 native American tribes from the game for lag purposes
+
+---
+Changes from previous version (1.35):
+-removed Arab ideas as they now exist in the base game
+-replaced particularist rebels with separatists for Kalmyk
+-AI will always refuse to return Rome to the Pope
+-Zhongguo missions will now convert Zhuang provinces to Sino-Zhuang
+-Spanish age bonus reverted to vanilla but still made available to Andalusia
+-made Kongsi Federation available to Zhongguo and Taiwan
+-removed change to Mevlevi Order as the same change was made in base game
+-removed change to call for peace as a similar change was made in base game
+-removed change to tropical dev cost as the same change was made in the base game
+-removed change to eyalet contribution as the same change was made in the base game
+-removed change to core eyalet contribution as a similar change was made in the base game
+-nerfed ideas for Siam due to revert in base game
+
+---
+
+Arsonists Version Changelog (1.37.2+)
+
+Fixes
+- Restored free cities
+- Fixed the bug of several missing reform tiers for republics, meaning they could not progress beyond tier 1 due to there being no reforms for tiers 2 or 3
+- Austro-Hungarian and Great Moravian ideas restored (Forming the tags and taking new ideas would previously just give the country generic ideas)
+- Missing burgher estate privileges restored
+- Fixed Austria-Hungary not being able to take the Austrian age bonus in the Age of Revolutions
+- Fixed crashes caused by the Khmer 'Second Golden Age' and 'Khmer Resurgence' missions
+
+
+Balancing/New Features
+- Swedish Recruitment age bonus (previously only available to Scandinavia and Sweden) now also made available to Denmark
+- Provinces of Interest added to Europe, Middle East, Africa, and Asia
+- Khmer 'Second Golden Age' mission nerfed from -25% all powers cost to -5%
+- German regional formable ideas updated
+- Ruthenian, Moroccan, Breton, and Burgundian ideas updated
+- Colonist added to the ideas of Brunei and Madyas
+- Prussian ideas nerfed (Morale & ICA) & militarization reworked
+- Ideas of Persia & Ottomans reworked
+- Zoroastrian Shirvan monument nerfed 
+- Scaling trade efficiency debuff applied/scaled with each age
+- Quantity ideas forcelimit nerfed 33% to 25%
+
+
+Other Changes 
+- China Republic renamed & Zhongguo's main color changed from { 222 111 161 } to { 224 48 48 }
+- China gov options now all have unique colors

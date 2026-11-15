@@ -1,0 +1,940 @@
+#Sus missions
+
+sos_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = SOS
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	sos101 = { #stabilize steering
+		icon = mission_establish_high_seas_navy
+		required_missions = {}
+		trigger = {
+			navy_size = 20
+		}
+		effect = {
+			add_country_modifier = {
+				name = sos_stable_steering
+				duration = -1
+			}
+		}
+	}
+	sos102 = { #align telescope
+		icon = mission_iberian_conquistador
+		required_missions = { sos101 }
+		trigger = {
+			OR = {
+				has_idea = sos1
+				has_idea = quest_for_the_new_world
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = sos_colonist
+				duration = 7300
+			}
+		}
+	}
+	sos103 = { #chart course
+		icon = mission_plus_ultra
+		required_missions = { sos102 }
+		trigger = {
+			OR = {
+				north_america = { has_discovered = ROOT }
+				south_america = { has_discovered = ROOT }
+				new_world = { has_discovered = ROOT }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = sos_venting_over
+				duration = 18250
+			}
+			pernambuco_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	sos104 = { #monitor tree
+		icon = mission_brazilian_bandeirantes
+		required_missions = { sos103 }
+		provinces_to_highlight = {
+			area = pernambuco_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			pernambuco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = sos_tree_monitor
+				duration = 7300
+			}
+			2803 = { add_permanent_claim = ROOT }
+			2890 = { add_permanent_claim = ROOT }
+			828 = { add_permanent_claim = ROOT }
+		}
+	}
+	sos105 = { #replace water jug
+		icon = mission_se_along_the_river
+		required_missions = { sos104 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2803
+				province_id = 2890
+				province_id = 828
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			2803 = { country_or_non_sovereign_subject_holds = ROOT }
+			2890 = { country_or_non_sovereign_subject_holds = ROOT }
+			828 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			panama_area = {
+				add_permanent_claim = ROOT
+			}
+			unlock_estate_privilege = {
+				estate_privilege = estate_burghers_hydraulic_rights
+			}
+		}
+	}
+	sos106 = { #open waterways
+		icon = mission_rb_scottish_the_darien_scheme
+		required_missions = { sos105 }
+		provinces_to_highlight = {
+			area = panama_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			panama_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			835 = {
+				add_great_project = {
+					type = panama_canal
+					instant = no
+				}
+			}
+			yucatan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	sos107 = { #clear asteroids
+		icon = mission_mayan_conquest
+		required_missions = { sos106 }
+		provinces_to_highlight = {
+			area = yucatan_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			yucatan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = mayan_ufo_support
+				duration = 3650
+			}
+			east_yucatan_area = {
+				add_permanent_claim = ROOT
+			}
+			campeche_area = {
+				add_permanent_claim = ROOT
+			}
+			guatemala_lowlands_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	sos108 = { #treaty of tordesus
+		icon = mission_plus_ultra
+		required_missions = { sos107 }
+		trigger = {
+			colony = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = sos_venting_over
+				duration = -1
+			}
+		}
+	}
+}
+
+sos_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = SOS
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	sos206 = { #vent across the sahara
+		icon = mission_conquer_timbuktu
+		position = 6
+		required_missions = { sos305 }
+		provinces_to_highlight = {
+			OR = {
+				area = western_sahara_area
+				area = niger_bend_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			western_sahara_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			niger_bend_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			dendi_area = {
+				add_permanent_claim = ROOT
+			}
+			baghena_area = {
+				add_permanent_claim = ROOT
+			}
+			massina_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			jenne_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			tekrur_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					1128 = { trade_goods = salt }
+				}
+				1128 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = {
+					1129 = { trade_goods = salt }
+				}
+				1129 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	sos207 = { #impersonate the fulani
+		icon = mission_sw_against_the_desert
+		required_missions = { sos206 }
+		provinces_to_highlight = {
+			OR = {
+				area = dendi_area
+				area = baghena_area
+				area = massina_area
+				area = jenne_area
+				area = tekrur_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			dendi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			baghena_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			massina_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			jenne_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tekrur_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_accepted_culture = fulani
+			add_country_modifier = {
+				name = hau_the_jiihad
+				duration = 7300
+			}
+			massina_area = {
+				change_culture = fulani
+			}
+			jenne_area = {
+				change_culture = fulani
+			}
+		}
+	}
+}
+
+sos_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = SOS
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	sos301 = { #stab Morocco
+		icon = mission_monarch_in_throne_room
+		required_missions = {}
+		trigger = {
+			is_subject = no
+			owns_core_province = 348
+		}
+		effect = {
+			add_stability = 3
+			344 = {
+				add_core = ROOT
+			}
+			345 = {
+				add_core = ROOT
+			}
+			346 = {
+				add_core = ROOT
+			}
+			2460 = {
+				add_core = ROOT
+			}
+			2466 = {
+				add_core = ROOT
+			}
+			2470 = {
+				add_core = ROOT
+			}
+		}
+	}
+	sos303 = { #double kill
+		icon = mission_pacify_the_berbers
+		required_missions = { sos301 }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				province_id = 344
+				province_id = 345
+				province_id = 346
+				province_id = 2460
+				province_id = 2466
+				province_id = 2470
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			is_subject = no
+			is_at_war = no
+			NOT = { exists = MRK }
+			NOT = { exists = TFL }
+		}
+		effect = {
+			4568 = {
+				add_core = ROOT
+			}
+			western_morocco_area = {
+				add_core = ROOT
+			}
+			marrekesh_area = {
+				add_core = ROOT
+			}
+			northern_morocco_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	sos305 = { #impersonate morocco
+		icon = mission_moroccan_ports
+		position = 5
+		required_missions = { sos303 }
+		provinces_to_highlight = {
+			OR = {
+				area = western_morocco_area
+				area = marrekesh_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			western_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			marrekesh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			349 = {
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
+				add_permanent_claim = ROOT
+			}
+			ouled_nail_area = {
+				add_permanent_claim = ROOT
+			}
+			north_saharan_area = {
+				add_permanent_claim = ROOT
+			}
+			fezzan_area = {
+				add_permanent_claim = ROOT
+			}
+			niger_bend_area = {
+				add_permanent_claim = ROOT
+			}
+			western_sahara_area = {
+				add_permanent_claim = ROOT
+			}
+			sahel_region = {
+				discover_country = ROOT
+			}
+			1127 = {
+				add_core = ROOT
+				cede_province = ROOT
+			}
+			add_country_modifier = {
+				name = mor_black_guard
+				duration = -1
+			}
+			#disable morocco formation needs tooltip!
+			set_country_flag = formed_morocco_flag
+		}
+	}
+	sos306 = { #close the door to sahara
+		icon = mission_pacify_the_berbers
+		required_missions = { sos305 }
+		provinces_to_highlight = {
+			OR = {
+				area = hautes_plaines_area
+				area = ouled_nail_area
+				area = north_saharan_area
+				area = fezzan_area
+				province_id = 349
+			}
+			is_empty = no
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hautes_plaines_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ouled_nail_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_saharan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			349 = { country_or_non_sovereign_subject_holds = ROOT }
+			2448 = { country_or_non_sovereign_subject_holds = ROOT }
+			2449 = { country_or_non_sovereign_subject_holds = ROOT }
+			4567 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			2474 = {
+				add_core = ROOT
+				cede_province = ROOT
+			}
+			2475 = {
+				add_core = ROOT
+				cede_province = ROOT
+			}
+			azbin_area = {
+				add_permanent_claim = ROOT
+			}
+			east_azbin_area = {
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					352 = { trade_goods = salt }
+				}
+				352 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = {
+					2458 = { trade_goods = salt }
+				}
+				2458 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	sos307 = { #infiltrate the airship
+		icon = mission_conquer_air
+		required_missions = { sos306 }
+		provinces_to_highlight = {
+			OR = {
+				area = azbin_area
+				area = east_azbin_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			azbin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_azbin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "conquest_of_air"
+				duration = -1
+			}
+			hausa_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			katsina_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			zazzau_area = {
+				discover_country = ROOT
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					2272 = { trade_goods = salt }
+				}
+				2272 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = {
+					2277 = { trade_goods = salt }
+				}
+				2277 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	sos308 = { #suskoto caliphate
+		icon = mission_mal_jihad_upon_own_population
+		required_missions = { sos307 sos207 }
+		provinces_to_highlight = {
+			OR = {
+				area = zazzau_area
+				area = katsina_area
+				area = hausa_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			zazzau_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			katsina_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hausa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = SOK }
+		}
+		effect = {
+			every_owned_province = {
+				limit = { culture = tuareg }
+				change_culture = berber
+			}
+			zazzau_area = { add_core = SOK }
+			katsina_area = { add_core = SOK }
+			hausa_area = { add_core = SOK }
+			release = SOK
+			create_march = SOK
+			SOK = {
+				change_religion = sunni
+				add_country_modifier = {
+					name = hau_the_jiihad
+					duration = -1
+				}
+				override_country_name = SUSKOTO
+			}
+			niger_region = {
+				add_core = SOK
+			}
+			sahel_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+sos_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = SOS
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	sos406 = { #andasusia
+		icon = mission_protect_granada
+		position = 6
+		required_missions = { sos305 sos505 }
+		provinces_to_highlight = {
+			area = upper_andalucia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			upper_andalucia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					223 = { trade_goods = salt }
+				}
+				223 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = {
+					4546 = { trade_goods = salt }
+				}
+				4546 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	sos407 = { #2C6:8
+		icon = mission_assemble_an_army
+		required_missions = { sos406 }
+		provinces_to_highlight = { }
+		trigger = {
+			adm_tech = 20
+			dip_tech = 20
+			mil_tech = 20
+		}
+		effect = {
+			country_event = {
+				id = livid_impostor.3
+			}
+		}
+	}
+	sos408 = { #assemble artifact
+		icon = public_works
+		required_missions = { sos507 }
+		provinces_to_highlight = { }
+		trigger = {
+			319 = {
+				has_great_project = {
+					type = mausoleum_at_halicarnassus
+					tier = 2
+				}
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			318 = {
+				add_province_modifier = {
+					name = sos_ephesus
+					duration = -1
+				}
+			}
+			320 = {
+				add_province_modifier = {
+					name = sos_colossus
+					duration = -1
+				}
+			}
+			146 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+sos_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = SOS
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	sos501 = { #worship je-sus
+		icon = mission_hands_praying
+		required_missions = { }
+		trigger = {
+			any_owned_province = { religion_group = christian }
+			OR = {
+				religious_unity = 0.9
+				devotion = 90
+			}
+		}
+		effect = {
+			country_event = {
+				id = livid_impostor.1
+			}
+		}
+	}
+	sos503 = { #become the impopestor
+		icon = end_the_schism
+		position = 3
+		required_missions = { sos501 }
+		trigger = {
+			is_papal_controller = yes
+		}
+		effect = {
+			118 = { add_permanent_claim = ROOT }
+			add_papal_influence = 100
+		}
+	}
+	sos505 = { #along a secret avenue
+		icon = answer_the_roman_question
+		position = 5
+		required_missions = { sos503 }
+		provinces_to_highlight = {
+			province_id = 118
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns = 118
+		}
+		effect = {
+			country_event = {
+				id = livid_impostor.2
+			}
+			upper_andalucia_area = {
+				add_permanent_claim = ROOT
+			}
+			sicily_area = {
+				add_permanent_claim = ROOT
+			}
+			western_sicily_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	sos506 = { #susilian vespers
+		icon = king_of_sicily
+		required_missions = { sos505 }
+		provinces_to_highlight = {
+			OR = {
+				area = sicily_area
+				area = western_sicily_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = sos_vespers
+				duration = -1
+			}
+			aegean_archipelago_area = {
+				add_permanent_claim = ROOT
+			}
+			cukurova_area = {
+				add_permanent_claim = ROOT
+			}
+			aydin_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	sos507 = { #susader orders
+		icon = restore_the_hospitallers
+		required_missions = { sos506 }
+		provinces_to_highlight = {
+			OR = {
+				area = aegean_archipelago_area
+				area = aydin_area
+				area = cukurova_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aegean_archipelago_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aydin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cukurova_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			palestine_area = {
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				add_permanent_claim = ROOT
+			}
+			aleppo_area = {
+				add_permanent_claim = ROOT
+			}
+			327 = { change_province_name = "Tarsus" }
+			321 = { change_province_name = "Cypsus" }
+			164 = { change_province_name = "Naxsus" }
+			319 = { change_province_name = "Mentesus" }
+			318 = { change_province_name = "Ephesus" }
+			add_accepted_culture = greek
+			add_accepted_culture = turkish
+			add_country_modifier = {
+				name = sos_orders
+				duration = -1
+			}
+			if = {
+				limit = {
+					4309 = { trade_goods = salt }
+				}
+				4309 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = {
+					319 = { trade_goods = salt }
+				}
+				319 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	sos508 = { #kingdom of jesusalem
+		icon = jerusalem
+		required_missions = { sos507 }
+		provinces_to_highlight = {
+			OR = {
+				area = palestine_area
+				area = syria_area
+				area = aleppo_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_papal_influence = 100
+			set_country_flag = knights_templar_flag
+			custom_tooltip = knights_templar_tt
+			#custom_tooltip = costs_no_army_professionalism
+			trans_jordan_area = {
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					364 = { trade_goods = salt }
+				}
+				364 = {
+					add_province_modifier = {
+						name = salt_mining
+						duration = -1
+					}
+				}
+			}
+			if = {
+				limit = { government = theocracy }
+				add_government_reform = militarized_crusader_order_reform
+			}
+		}
+	}
+}

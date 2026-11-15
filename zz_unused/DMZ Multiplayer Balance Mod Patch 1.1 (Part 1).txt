@@ -1,0 +1,130 @@
+PRUSSIA
+
+Ideas:
+
++0.5 Yearly army tradition, −10% Aggressive expansion impact --> +0.75 Yearly army tradition
+
+−10% Stability cost modifier, +1 Tolerance of the true faith --> -15% Stability cost modifier
+
+−1% Yearly army tradition decay
+
++20% Morale of armies --> +15% Morale of Armies
+
++10% Nobility loyalty equilibrium 
+
++20% Infantry combat ability --> +5% Infantry combat ability, +10% Artillery combat ability
+
++25% National manpower modifier --> +20% National manpower modifier
+
+−5% Development cost
+
+Ambition:
+
++5% Discipline
+
+
+Prussian Militarization:
+
+Prussian Militarization Early: 
+
+(Base)
++5% Manpower recovery speed
+−5% Land maintenance modifier
++2.5% Discipline
+−0.05 Monthly early Prussian militarization
+
+(Max Power)
++10% Manpower recovery speed
+−10% Land maintenance modifier
++5% Discipline
+−0.25 Monthly Prussian militarization
+
+Prussian Militarization Total: 
+
+(Base)
++10% Manpower recovery speed
+−15% Land maintenance modifier
++2.5% Discipline
+−0.1 Monthly early Prussian militarization
+
+(Max Power)
++20% Manpower recovery speed
+−20% Land maintenance modifier
++5% Discipline
+−0.5 Monthly Prussian militarization
+
+
+Prussian Monarchy Gov't Type: 
+
+−0.02 Monthly war exhaustion
+−0.075 Monthly autonomy change
++10 Maximum absolutism
++3 Monarch military skill 
+−50% Governing capacity modifier --> -25% Governing capacity modifier
++10% Nobility loyalty equilibrium 
+
+
+
+PERSIA
+
+Ideas:
+
++15% Morale of armies, +15% Cavalry combat ability --> +10% Morale of armies
+
++15% National manpower modifier, +1 Qizilbash Max Privileges --> +15% National manpower modifier, +5% Qizilbash influence
+
++10% Goods produced modifier
+
++5% Discipline, +1 Ghilman max privileges --> +5% Discipline, +5% Ghilman influence
+
++20% Caravan power --> 15% Caravan Power
+
++10% Production efficiency, +1 Yearly prestige
+
+-5% Development cost, +15% Manpower recovery speed --> -5% Development cost, +10% Manpower recovery speed
+
++15% National tax modifier --> +10% National tax modifier
+
+Ambition:
+
++10% Recover army morale speed
+
+
+SHIRVAN MONUMENT:
+
+Shirvan Monument T3: +5% Discipline, -5% Culture Conversion Cost, -10% Fire damage recieved --> +5% Discipline, -10% Culture Conversion Cost, -5% Fire damage recieved
+Shirvan Monument T4: +10% Discipline, -10% Culture Conversion Cost, +5% Land fire damage, -10% Fire damage recieved --> +5% Discipline, -10% Culture Conversion Cost, -10% Fire damage recieved, +5% Land fire damage 
+
+
+
+OTTOMANS:
+
+Ideas:
+
+Traditions:
+
++5% Discipline, +3 Tolerance of heathens
+
+−25% Core-creation cost, +1 Max promoted culture --> −25% Core-creation cost, +5% Morale of Armies
+
++20% Manpower recovery speed
+
++15% Cavalry combat ability
+
++15% National tax modifier, +10% Reform Progress Growth --> +10% National tax modifier, +15% Reform Progress Growth
+
+−2 National Unrest
+
++10% Trade efficiency
+
++0.5 Yearly navy tradition, −10% Ship Cost --> +0.5 Yearly navy tradition, +10% Morale of Navies +10% Galley combat ability, -10% Galley cost
+
+Ambition:
+
++25% Land force limit modifier
+
+
+
+MOD NAME:
+
+Arsonists MP LIVID Updated --> DMZ Multiplayer Balance Mod

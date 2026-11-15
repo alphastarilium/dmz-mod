@@ -1,0 +1,81 @@
+three_troubles = {
+	potential = {
+		tag = PRC
+		#current_age = age_of_reformation
+		government = monarchy
+		NOT = { has_reform = steppe_horde }
+		uses_doom = no
+		is_free_or_tributary_trigger = yes
+		num_of_cities = 10
+	}
+	
+	can_start = {
+		has_any_disaster = no
+		NOT = { stability = 0 }
+		NOT = { religion_group = christian }
+		any_owned_province = { religion_group = christian }
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			stability = 3
+		}
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			religion = confucianism
+			NOT = { has_harmonized_with = christian }
+		}
+		modifier = {
+			factor = 1
+			is_emperor_of_china = yes
+			NOT = { imperial_mandate = 25 }
+		}
+		modifier = {
+			factor = 1
+			OR = {
+				primary_culture = manchu_new
+				primary_culture = altaic_new
+			}
+		}
+		modifier = {
+			factor = 1
+			any_owned_province = { devastation = 75 }
+		}
+		modifier = {
+			factor = 1
+			corruption = 10
+		}
+		modifier = {
+			factor = 1
+			average_autonomy = 25
+		}
+		modifier = {
+			factor = 1
+			NOT = { army_size_percentage = 0.5 }
+			NOT = { manpower_percentage = 0.5 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 1 }
+		}
+	}
+	
+	can_end = { #CHANGE THIS!
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		stability = 3
+	}
+	
+	modifier = {
+		global_unrest = 5
+		global_monthly_devastation = 0.05
+	}
+	
+	#on_start
+	#on_end
+	
+	#on_monthly = { random_events = { } }
+}

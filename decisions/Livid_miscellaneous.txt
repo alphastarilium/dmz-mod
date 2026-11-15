@@ -1,0 +1,69 @@
+country_decisions = {
+	pacific_formable_ideas = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				tag = UHW
+				tag = VIT
+				tag = AOT
+			}
+			NOT = { has_country_flag = took_pacific_ideas }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1240
+				province_id = 1242
+				province_id = 1107
+				province_id = 2739
+				province_id = 4935
+				province_id = 4938
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			adm_tech = 10
+			owns_core_province = 1240
+			owns_core_province = 4935
+			owns_core_province = 1242
+			owns_core_province = 4938
+			owns_core_province = 2739
+			owns_core_province = 1107
+		}
+		effect = {
+			set_country_flag = took_pacific_ideas
+			override_country_name = PACIFIC_STATE
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	livid_restore_color = {
+		major = yes
+		potential = {
+			had_country_flag = {
+				flag = livid_recolor
+				days = 1825
+			}
+		}
+		#allow = {
+		#	prestige = -50
+		#}
+		effect = {
+			clr_country_flag = livid_recolor
+			restore_country_color = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

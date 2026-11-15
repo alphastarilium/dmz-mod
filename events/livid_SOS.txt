@@ -1,0 +1,77 @@
+namespace = livid_impostor
+
+country_event = {#catholicism
+	id = livid_impostor.1
+	title = sos1t
+	desc = sos1d
+	picture = IMPOSTOR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sos1a
+		change_religion = catholic
+		capital_scope = {
+			change_religion = catholic
+		}
+		add_country_modifier = {
+			name = sos_conversion
+			duration = 18250
+		}
+		add_stability = -1
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = sos1b
+		add_stability = 1
+		add_devotion = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = {#along a secret avenue
+	id = livid_impostor.2
+	title = sos2t
+	desc = sos2d
+	picture = IMPOSTOR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sos2a
+		add_country_modifier = {
+			name = sos_vent_master
+			duration = -1
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = {#2Cor6:8
+	id = livid_impostor.3
+	title = sos3t
+	desc = sos3d
+	picture = IMPOSTOR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sos3a
+		change_technology_group = western
+		change_unit_type = western
+		ai_chance = { factor = 100 }
+	}
+}
+
+#country_event = {
+#	id = livid_impostor.1
+#	title = sos1t
+#	desc = sos1d
+#	picture = IMPOSTOR_eventPicture
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		
+#	}
+#}

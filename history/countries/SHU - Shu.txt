@@ -1,0 +1,18 @@
+government = monarchy
+add_government_reform = chinese_warlord
+technology_group = chinese
+religion = confucianism
+primary_culture = sichuanese
+capital = 679	#Chengdu
+
+1444.1.1 = {
+	monarch = {
+		name = "Gang"
+		culture = sichuanese
+		dynasty = "Dong"
+		adm = 6
+		dip = 2
+		mil = 0
+		birth_date = 1400.1.1
+	}
+}

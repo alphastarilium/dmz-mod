@@ -1,0 +1,9 @@
+government = monarchy
+add_government_reform = confucian_bureaucracy
+government_rank = 2
+technology_group = chinese
+religion = confucianism
+primary_culture = chimin
+capital = 2154 #Taipei
+
+

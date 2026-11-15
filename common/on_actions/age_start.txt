@@ -1,0 +1,19 @@
+# dmz/arso livid trade snowballing event fires per age
+
+on_bi_yearly_pulse = {
+		events = {
+				dmztrade.1
+		}
+}
+
+on_bi_yearly_pulse = {
+		events = {
+				dmztrade.2
+		}
+}	
+
+on_bi_yearly_pulse = {
+		events = {
+				dmztrade.3
+		}
+}

@@ -1,0 +1,156 @@
+namespace = lividtroubles
+
+country_event = {
+	id = lividtroubles.1
+	title = troubles1t
+	desc = troubles1d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles1a
+	}
+}
+
+country_event = {
+	id = lividtroubles.2
+	title = troubles2t
+	desc = troubles2d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles2a
+	}
+}
+
+country_event = {
+	id = lividtroubles.3
+	title = troubles3t
+	desc = troubles3d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles3a
+	}
+}
+
+country_event = {
+	id = lividtroubles.4
+	title = troubles4t
+	desc = troubles4d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles4a
+	}
+}
+
+country_event = {
+	id = lividtroubles.5
+	title = troubles5t
+	desc = troubles5d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles5a
+	}
+}
+
+country_event = {
+	id = lividtroubles.11
+	title = troubles11t
+	desc = troubles11d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles11a
+	}
+}
+
+country_event = {
+	id = lividtroubles.12
+	title = troubles12t
+	desc = troubles12d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles12a
+	}
+}
+
+country_event = {
+	id = lividtroubles.13
+	title = troubles13t
+	desc = troubles13d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles13a
+	}
+}
+
+country_event = {
+	id = lividtroubles.14
+	title = troubles14t
+	desc = troubles14d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles14a
+	}
+}
+
+country_event = {
+	id = lividtroubles.15
+	title = troubles15t
+	desc = troubles15d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles15a
+	}
+}
+
+country_event = {
+	id = lividtroubles.16
+	title = troubles16t
+	desc = troubles16d
+	picture = PORCUPINE_eventPicture
+	
+	trigger = {}
+	is_triggered_only = yes
+	
+	option = {
+		name = troubles16a
+	}
+}
+

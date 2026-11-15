@@ -1,0 +1,3 @@
+#tri mod
+PRC = "countries/Zhongguo.txt"
+ROC = "countries/Taiwan.txt"

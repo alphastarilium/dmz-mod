@@ -1,0 +1,499 @@
+namespace = grandmod_china
+
+#romance of the three kingdoms
+country_event = {
+	id = grandmod_china.1
+	title = china1t
+	desc = china1d
+	picture = IMPERIAL_SEAL_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = ROC
+			is_emperor_of_china = yes
+		}
+		#has_institution = printing_press
+		has_country_flag = prc_literature
+		OR = {
+			war_with = SHU
+			war_with = WUU
+		}
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	fire_only_once = yes
+	
+	option = {
+		name = china1a
+		add_country_modifier = {
+			name = "romance_of_the_three_kingdoms" #10% morale, 10% manpower, -10% goods
+			duration = 3650
+		}
+		add_army_tradition = 25
+		WUU = {
+			every_owned_province = {
+				add_claim = ROOT
+			}
+		}
+		SHU = {
+			every_owned_province = {
+				add_claim = ROOT
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = china1b
+		add_prestige = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+#water margin
+country_event = {
+	id = grandmod_china.2
+	title = china2t
+	desc = china2d
+	picture = IMPERIAL_SEAL_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = ROC
+			is_emperor_of_china = yes
+		}
+		#has_institution = printing_press
+		has_country_flag = prc_literature
+		revolt_percentage = 0.1
+		has_any_disaster = no
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	fire_only_once = yes
+	
+	option = {
+		name = china2a
+		add_country_modifier = {
+			name = "water_margin" #-2 unrest, 10% fort defense, -0.05 monthly mandate
+			duration = 3650
+		}
+		disband_rebels = anti_tax_rebels
+		disband_rebels = heretic_rebels
+		disband_rebels = noble_rebels
+		disband_rebels = particularist_rebels
+		disband_rebels = leadered_peasant_rebels
+		disband_rebels = nationalist_rebels
+		disband_rebels = pretender_rebels
+		disband_rebels = revolutionary_rebels
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = china2b
+		add_prestige = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+#journey to the west
+country_event = {
+	id = grandmod_china.3
+	title = china3t
+	desc = china3d
+	picture = IMPERIAL_SEAL_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = ROC
+			is_emperor_of_china = yes
+		}
+		#has_institution = printing_press
+		has_country_flag = prc_literature
+		has_discovered = 454
+	}
+	mean_time_to_happen = {
+		months = 60
+	}
+	fire_only_once = yes
+	
+	option = {
+		name = china3a
+		add_country_modifier = {
+			name = "journey_to_the_west" #10% move speed, -10% regiment cost, -10% global TP
+			duration = 3650
+		}
+		kashgaria_area = {
+			add_permanent_claim = ROOT
+		}
+		tarim_basin_area = {
+			add_permanent_claim = ROOT
+		}
+		shanshan_area = {
+			add_permanent_claim = ROOT
+		}
+		create_conquistador = { tradition = 50 }
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = china3b
+		add_prestige = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+#jin ping mei
+country_event = {
+	id = grandmod_china.4
+	title = china4t
+	desc = china4d
+	picture = IMPERIAL_SEAL_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = ROC
+			is_emperor_of_china = yes
+		}
+		#has_institution = printing_press
+		has_country_flag = prc_literature
+		has_institution = renaissance
+	}
+	mean_time_to_happen = {
+		months = 60
+	}
+	fire_only_once = yes
+	
+	option = {
+		name = china4a
+		add_country_modifier = {
+			name = "jin_ping_mei" #25% ins spread, -10% idea cost, 10% stab cost
+			duration = 3650
+		}
+		change_innovativeness = 5
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = china1b
+		add_prestige = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+#rulin waishi
+country_event = {
+	id = grandmod_china.5
+	title = china5t
+	desc = china5d
+	picture = IMPERIAL_SEAL_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = ROC
+			is_emperor_of_china = yes
+		}
+		#has_institution = printing_press
+		has_country_flag = prc_literature
+		has_institution = enlightenment
+	}
+	mean_time_to_happen = {
+		months = 60
+	}
+	fire_only_once = yes
+	
+	option = {
+		name = china5a
+		add_country_modifier = {
+			name = "rulin_waishi" #-5% tech cost, -0.1 corruption, 10% advisor cost
+			duration = 3650
+		}
+		add_mandate = 20
+		add_adm_power = 100
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = china5b
+		add_prestige = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+#dream of the red chamber
+country_event = {
+	id = grandmod_china.6
+	title = china6t
+	desc = china6d
+	picture = IMPERIAL_SEAL_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = PRC
+			tag = ROC
+			is_emperor_of_china = yes
+		}
+		#has_institution = printing_press
+		has_country_flag = prc_literature
+		war_exhaustion = 5
+		num_of_loans = 5
+		#is_in_war = {
+		#	NOT = { war_score = -50 }
+		#}
+		is_at_war = yes
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	fire_only_once = yes
+	
+	option = {
+		name = china6a
+		add_country_modifier = {
+			name = "dream_of_the_red_chamber" #5% discipline, 0.5 monthly mandate, 5 unrest
+			duration = 3650
+		}
+		add_absolutism = 10
+		add_mandate = 10
+		add_war_exhaustion = -10
+		add_yearly_manpower = 2
+		add_years_of_income = 2
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = china6b
+		add_prestige = 25
+		ai_chance = { factor = 0 }
+	}
+}
+
+#mission tree events
+#government of zhongguo
+country_event = {
+	id = grandmod_china.101
+	title = china101t
+	desc = china101d
+	picture = PORCUPINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = china101a
+		change_government = monarchy
+		add_government_reform = confucian_bureaucracy
+		add_country_modifier = {
+			name = "prc_monarchy"
+			duration = -1
+		}
+		override_country_name = ZHONGGUO_MONARCHY
+		ai_chance = { factor = 50 }
+		custom_tooltip = PRC_gold_color_change
+		hidden_effect = { 
+			change_country_color = { color = { 252 212 108 }}
+		}
+	}
+	option = {
+		name = china101b
+		change_government = theocracy
+		add_government_reform = leading_clergy_reform
+		add_country_modifier = {
+			name = "prc_theocracy"
+			duration = -1
+		}
+		override_country_name = ZHONGGUO_THEOCRACY
+		ai_chance = { factor = 25 }
+		custom_tooltip = PRC_jade_color_change
+		hidden_effect = { 
+			change_country_color = { color = { 0 163 108 }} 
+		}
+	}
+	option = {
+		name = china101c
+		change_government = republic
+		add_government_reform = kongsi_federation
+		add_country_modifier = {
+			name = "prc_republic"
+			duration = -1
+		}
+		override_country_name = ZHONGGUO_REPUBLIC
+		ai_chance = { factor = 25 }
+		custom_tooltip = PRC_red_color_change
+		hidden_effect = { 
+			change_country_color = { color = { 167 0 36 }} 
+		}
+	}
+}
+
+#get banners
+country_event = {
+	id = grandmod_china.102
+	title = china102t
+	desc = china102d
+	picture = PORCUPINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = china102a
+		trigger = {
+			any_owned_province = { culture = altaic_new }
+		}
+		change_primary_culture = altaic_new
+		add_stability = -1
+		ai_chance = { factor = 25 }
+	}
+	option = {
+		name = china102b
+		trigger = {
+			any_owned_province = { culture = manchu_new }
+		}
+		change_primary_culture = manchu_new
+		add_stability = -1
+		ai_chance = { factor = 25 }
+	}
+	option = {
+		name = china102c
+		add_stability = 1
+		ai_chance = { factor = 50 }
+	}
+}
+
+#manichaeism
+country_event = {
+	id = grandmod_china.103
+	title = china103t
+	desc = china103d
+	picture = PORCUPINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {#eradicate
+		name = china103a
+		add_stability = 1
+		ai_chance = { factor = 0 }
+	}
+	option = {#preserve
+		name = china103b
+		add_prestige = 25
+		add_harmony = 25
+		ai_chance = { factor = 0 }
+	}
+	option = {#embrace
+		name = china103c
+		1829 = {
+			change_religion = zoroastrian
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+#shinto
+country_event = {
+	id = grandmod_china.104
+	title = china104t
+	desc = china104d
+	picture = PORCUPINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = china104a
+		1822 = {
+			change_religion = shinto
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+		add_stability = -1
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = china104b
+		add_stability = 1
+		ai_chance = { factor = 0 }
+	}
+}
+
+#uyghurs
+country_event = {
+	id = grandmod_china.105
+	title = china105t
+	desc = china105d
+	picture = PORCUPINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {#accept uyghurs
+		name = china105a
+		add_accepted_culture = uyghur
+		zungaria_area = {
+			if = {
+				limit = { NOT = { culture = uyghur } }
+				change_culture = uyghur
+			}
+		}
+		turpan_kumul_area = {
+			if = {
+				limit = { NOT = { culture = uyghur } }
+				change_culture = uyghur
+			}
+		}
+		kashgaria_area = {
+			if = {
+				limit = { NOT = { culture = uyghur } }
+				change_culture = uyghur
+			}
+		}
+		shanshan_area = {
+			if = {
+				limit = { NOT = { culture = uyghur } }
+				change_culture = uyghur
+			}
+		}
+		tarim_basin_area = {
+			if = {
+				limit = { NOT = { culture = uyghur } }
+				change_culture = uyghur
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = {#go full 21st century
+		name = china105b
+		zungaria_area = {
+			add_province_modifier = {
+				name = prc_sinicize
+				duration = 9125
+			}
+		}
+		turpan_kumul_area = {
+			add_province_modifier = {
+				name = prc_sinicize
+				duration = 9125
+			}
+		}
+		kashgaria_area = {
+			add_province_modifier = {
+				name = prc_sinicize
+				duration = 9125
+			}
+		}
+		shanshan_area = {
+			add_province_modifier = {
+				name = prc_sinicize
+				duration = 9125
+			}
+		}
+		tarim_basin_area = {
+			add_province_modifier = {
+				name = prc_sinicize
+				duration = 9125
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+}

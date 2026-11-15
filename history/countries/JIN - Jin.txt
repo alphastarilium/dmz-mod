@@ -1,0 +1,19 @@
+government = monarchy
+add_government_reform = chinese_warlord
+technology_group = chinese
+religion = confucianism
+primary_culture = jin
+capital = 693	#Taiyuan
+
+1444.1.1 = {
+	monarch = {
+		name = "Arcanus"
+		culture = jin
+		dynasty = "Evil"
+		adm = 5
+		dip = 6
+		mil = 5
+		birth_date = 1400.1.1
+	}
+	#add_ruler_personality = industrious_personality
+}

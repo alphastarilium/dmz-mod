@@ -1,0 +1,51 @@
+﻿l_english:
+
+ morale_interest_province: "Province of Interest (Morale)"
+ trade_interest_province: "Province of Interest (Trade)"
+ production_interest_province: "Province of Interest (Goods Produced)"
+ manpower_interest_province: "Province of Interest (Manpower)"
+ legacy_of_cartier: "Legacy of Cartier"
+ coastal_estates_of_brittany: "Coastal Estates of Brittany"
+ breton_settlers: "Breton Settlers"
+ breton_shipyards: "Breton Shipyards"
+ legacy_of_cartier_desc: "Many explorers of the oceans have been born in Brittany. It is time we apply the knowledge from their legacies to our own expansion"
+ coastal_estates_of_brittany_desc: ""
+ breton_settlers_desc: "Much like the how the Britons of old escaped to Brittany following the Anglo-Saxon invasion, many of our own people seek to escape the threat of growing French influence in Europe by means of migrating to the colonies."
+ breton_shipyards_desc: "A long history of trading over the sea and previosuly using it as a means of communications with our Briton brothers has left us with capable ship-builders and sailors" 
+ protect_the_peninsula: "Protect the Peninsula & Coastline"
+ protect_the_peninsula_desc: "Brittany exists as a peninsula with an expansive coastline compared to most countries. It is important we have a capable army to defend the peninsula from the French and the beaches from foreign raiders just as was done by the old Breton kings."
+ legacy_of_the_almohad: "Legacy of the Almohads"
+ legacy_of_the_almohad_desc: "Our people once ruled over much of the Maghreb and al-Andalus. We must claim the glory of the legacies of the Almohad and Almoravid dynasties and restore Morocco to greatness."
+ mor_cavalry: "Berber Cavalry"
+ mor_cavalry_desc: "The Berbers have had a long history of being effective warriors on horseback, one streching all the way back to antiquity."
+ mor_estates: "Moroccan Estates"
+ mor_estates_desc: ""
+ bur_loan_management: "Lombard & Jewish Loan Management"
+ bur_loan_management_desc: "Through our skillful loan and finance management, we have managed to make great use of our loans from the Jewish and Lombard bankers. This has allowed us to invest into increasing the Duke's income while easily paying them off." 
+ bur_defense_of_border: "Defense of the Western Border"
+ bur_defense_of_border_desc: "Throughout history we have been assailed by the Franks to the west yet we have continually repelled them. We must take our western defenses to the next level in order to keep the Duke's people safe from the growing French threat."
+ 
+ PRC_gold_color_change: "We will adopt a new gold map color"
+ PRC_jade_color_change: "We will adopt a new jade map color"
+ PRC_red_color_change: "We will adopt a new red map color"
+ 
+ dmztrade.1.t: "The Trade Winds Shift"
+ dmztrade.1.d: "The Reformation brings with it uncertainty and instability across Europe and the world. Merchants and markets suffer as commerce grows difficult."
+ dmztrade.1.a: "This kinda sucks!"
+ dmztrade_trade_eff_penalty1: "Religious Trade Disruption"
+ dmztrade_tt1: "Our trade efficiency will be slightly penalized"
+ 
+ dmztrade.2.t: "The Trade Winds Shift"
+ dmztrade.2.d: "In this new age, Growing centralized powers restrict markets and prioritize national interest, tightening control over commerce."
+ dmztrade.2.a: "This kinda sucks!"
+ dmztrade_trade_eff_penalty2: "Tightening Markets"
+ dmztrade_tt2: "Our trade efficiency will be penalized"
+ 
+ dmztrade.3.t: "The Trade Winds Shift"
+ dmztrade.3.d: "You know the drill at this point."
+ dmztrade.3.a: "..."
+ dmztrade_trade_eff_penalty3: "Revolutionary Trade Disruption"
+ dmztrade_tt3: "Our trade efficiency will be noticeably penalized" 
+ 
+ 
+ 
